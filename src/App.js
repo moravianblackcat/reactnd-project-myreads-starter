@@ -1,7 +1,8 @@
 import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
-import Book from "./components/Book"
+import Book from "./components/Book";
+import Shelf from "./components/Shelf";
 
 const currentBooks = [
 	{title: 'To Kill a Mockingbird',
@@ -71,39 +72,10 @@ class BooksApp extends React.Component {
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-              <div>
-                <div className="bookshelf">
-                  <h2 className="bookshelf-title">Currently Reading</h2>
-                  <div className="bookshelf-books">
-                    <ol className="books-grid">
-                      {currentBooks.map(book => {
-                        return <li><Book title={book.title} authors={book.authors} smallThumbnail={book.smallThumbnail} /></li>;
-                      })}
-                    </ol>
-                  </div>
-                </div>
-                <div className="bookshelf">
-                  <h2 className="bookshelf-title">Want to Read</h2>
-                  <div className="bookshelf-books">
-                    <ol className="books-grid">
-                    {wantedBooks.map(book => {
-                        return <li><Book title={book.title} authors={book.authors} smallThumbnail={book.smallThumbnail} /></li>;
-                      })}
-                    </ol>
-                  </div>
-                </div>
-                <div className="bookshelf">
-                  <h2 className="bookshelf-title">Read</h2>
-                  <div className="bookshelf-books">
-                    <ol className="books-grid">
-                    {readBooks.map(book => {
-                        return <li><Book title={book.title} authors={book.authors} smallThumbnail={book.smallThumbnail} /></li>;
-                      })}
-                    </ol>
-                  </div>
-                </div>
+                <Shelf name='Currently Reading' books={currentBooks} />
+                <Shelf name='Want to Read' books={wantedBooks} />
+                <Shelf name='Read' books={readBooks} />
               </div>
-            </div>
             <div className="open-search">
               <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
             </div>
