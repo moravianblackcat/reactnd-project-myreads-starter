@@ -10,7 +10,7 @@ export default class Shelf extends Component {
                 <div className="bookshelf-books">
                 <ol className="books-grid">
                 {this.props.books.map(book => {
-                    return <li><Book title={book.title} authors={book.authors} smallThumbnail={book.smallThumbnail} /></li>;
+                    return <li key={book.title}><Book title={book.title} authors={book.authors} smallThumbnail={book.imageLinks.smallThumbnail} /></li>;
                     })}
                 </ol>
                 </div>
