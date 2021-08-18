@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Book from "./Book";
+import BooksList from './BooksList';
 
 export default class Shelf extends Component {
 
@@ -8,11 +8,7 @@ export default class Shelf extends Component {
             <div className="bookshelf">
                 <h2 className="bookshelf-title">{this.props.name}</h2>
                 <div className="bookshelf-books">
-                <ol className="books-grid">
-                {this.props.books.map(book => {
-                    return <li key={book.title}><Book title={book.title} authors={book.authors} smallThumbnail={book.imageLinks.smallThumbnail} /></li>;
-                    })}
-                </ol>
+                <BooksList books={this.props.books} />
                 </div>
             </div>
         );
