@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as constants from './apihelpers/constants';
 import Shelf from "./components/Shelf";
 import { getAll } from "./BooksAPI";
+import { Link } from 'react-router-dom';
 
 export default class Books extends Component {
 
@@ -34,7 +35,11 @@ export default class Books extends Component {
                   <Shelf name='Read' books={this.state[constants.READ]} />
                 </div>
               <div className="open-search">
-                <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+                <Link 
+                  to='/search'
+                >
+                <button>Add a book</button>
+                </Link>
               </div>
             </div>
           )
